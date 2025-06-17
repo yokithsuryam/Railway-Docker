@@ -1,9 +1,8 @@
-FROM python:3.10-slim
+FROM n8nio/n8n:latest
 
-WORKDIR /app
+# Optional: install additional packages (uncomment if needed)
+# USER root
+# RUN apt-get update && apt-get install -y nano
 
-COPY app.py .
-
-RUN pip install flask
-
-CMD ["python", "app.py"]
+# Set working dir and permissions (n8n runs as user node)
+USER node
